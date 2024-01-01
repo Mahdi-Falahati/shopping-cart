@@ -10,7 +10,7 @@ import { Box } from "@mui/material";
 export default function ProductCard(props) {
   const { id, title, image, price } = props;
   return (
-    <Card id={id} sx={{ maxWidth: 240, padding: "5px", margin: "15px 0px" }}>
+    <Card id={id} sx={{ maxWidth: 250, padding: "5px", margin: "15px 0px" }}>
       <Box
         sx={{
           backgroundImage: `url(${image})`,
@@ -25,6 +25,7 @@ export default function ProductCard(props) {
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
+          flexWrap:"nowrap"
         }}
       >
         <Typography
