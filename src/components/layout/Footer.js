@@ -6,7 +6,7 @@ export default function Footer() {
       variant="button"
       textAlign="center"
       display="block"
-      pt={2}
+      py={1}
       sx={{borderTop:"1px dotted #000"}}
     >
       Created By

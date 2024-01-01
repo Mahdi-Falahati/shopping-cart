@@ -3,3 +3,7 @@
   padding: 20px 0px;
   margin-bottom: 15px;
 }
+
+.mainContent{
+    min-height: 77vh;
+}
