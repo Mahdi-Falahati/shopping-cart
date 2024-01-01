@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
       <Stack mx={4} alignItems="center" justifyContent="space-between" flexDirection="row">
-        <Typography variant="h4" fontWeight="bold" color="primary">
+        <Typography variant="h5" fontWeight="bold" color="primary">
           Store
         </Typography>
         <Link to="/cart">
