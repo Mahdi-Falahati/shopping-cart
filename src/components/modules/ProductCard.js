@@ -6,15 +6,20 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
+import { Box } from "@mui/material";
 
 export default function ProductCard(props) {
-  const {id,title,image,price}=props;
+  const { id, title, image, price } = props;
   return (
-    <Card id={id} sx={{ maxWidth: 240, padding:'5px' }}>
-      <CardMedia
-        component="img"
-        alt="green iguana"
-        image={image}
+    <Card id={id} sx={{ maxWidth: 240, padding: "5px", margin: "15px 0px" }}>
+      <Box
+        sx={{
+          backgroundImage: `url(${image})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          height: "200px",
+        }}
       />
       <CardContent
         sx={{
@@ -42,6 +47,8 @@ export default function ProductCard(props) {
           sx={{
             background: "#22c55e",
             padding: "3px 10px",
+            minWidth:"90px",
+            textAlign:"center",
             borderRadius: "10px",
           }}
         >
