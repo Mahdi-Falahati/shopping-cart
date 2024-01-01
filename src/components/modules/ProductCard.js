@@ -61,7 +61,7 @@ export default function ProductCard(props) {
           alignItems: "center",
         }}
       >
-        <Link to={""} style={{ color: "blue" }}>
+        <Link to={`/${id}`} style={{ color: "blue" }}>
           Details
         </Link>
         <Button
