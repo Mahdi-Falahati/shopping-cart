@@ -5,7 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import RootLayout from "./components/layout/RootLayout";
+import RootLayout from "./components/templates/RootLayout";
 import Home from "./pages/Home";
 import { useEffect } from "react";
 import Api from "./utils/Api";

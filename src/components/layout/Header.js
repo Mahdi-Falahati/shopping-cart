@@ -1,7 +1,7 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Badge, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
-import styles from './layout.module.css';
+import styles from '../templates/layout.module.css';
 
 export default function Header() {
   return (
