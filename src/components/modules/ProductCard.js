@@ -9,6 +9,7 @@ import { Box, IconButton, Stack } from "@mui/material";
 import { useState } from "react";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
+import IndeterminateCheckBoxOutlinedIcon from '@mui/icons-material/IndeterminateCheckBoxOutlined';
 
 export default function ProductCard(props) {
   const { id, title, image, price } = props;
@@ -88,12 +89,34 @@ export default function ProductCard(props) {
             Add to cart
           </Button>
         ) : (
-          <Stack flexDirection="row" alignItems="center" justifyContent="space-between">
-            <IconButton onClick={deleteProductHandler} aria-label="delete" color="secondary">
-              <DeleteForeverOutlinedIcon fontSize="inherit" />
-            </IconButton>
+          <Stack
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            {count <= 1 ? (
+              <IconButton
+                onClick={deleteProductHandler}
+                aria-label="delete"
+                color="warning"
+              >
+                <DeleteForeverOutlinedIcon fontSize="inherit" />
+              </IconButton>
+            ) : (
+              <IconButton
+                onClick={deleteProductHandler}
+                aria-label="delete"
+                color="warning"
+              >
+                <IndeterminateCheckBoxOutlinedIcon fontSize="inherit" />
+              </IconButton>
+            )}
             <Typography fontWeight="bold">{count}</Typography>
-            <IconButton onClick={addProductHandler} aria-label="add" color="success">
+            <IconButton
+              onClick={addProductHandler}
+              aria-label="add"
+              color="success"
+            >
               <ControlPointOutlinedIcon fontSize="inherit" />
             </IconButton>
           </Stack>
