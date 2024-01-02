@@ -5,10 +5,23 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
-import { Box } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
+import { useState } from "react";
+import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
 
 export default function ProductCard(props) {
   const { id, title, image, price } = props;
+  const [count, setCount] = useState(0);
+
+  const addProductHandler = () => {
+    setCount((prev) => prev + 1);
+  };
+
+  const deleteProductHandler = () => {
+    setCount((prev) => prev - 1);
+  };
+
   return (
     <Card id={id} sx={{ maxWidth: 250, padding: "5px", margin: "15px 0px" }}>
       <Box
@@ -25,7 +38,7 @@ export default function ProductCard(props) {
           display: "flex",
           justifyContent: "space-around",
           alignItems: "center",
-          flexWrap:"nowrap"
+          flexWrap: "nowrap",
         }}
       >
         <Typography
@@ -47,8 +60,8 @@ export default function ProductCard(props) {
           sx={{
             background: "#22c55e",
             padding: "3px 10px",
-            minWidth:"90px",
-            textAlign:"center",
+            minWidth: "90px",
+            textAlign: "center",
             borderRadius: "10px",
           }}
         >
@@ -62,16 +75,29 @@ export default function ProductCard(props) {
           alignItems: "center",
         }}
       >
-        <Link to={`/${id}`} style={{ color: "blue",textDecoration:"none" }}>
+        <Link to={`/${id}`} style={{ color: "blue", textDecoration: "none" }}>
           Details
         </Link>
-        <Button
-          size="small"
-          variant="contained"
-          startIcon={<AddShoppingCartOutlinedIcon />}
-        >
-          Add to cart
-        </Button>
+        {!count ? (
+          <Button
+            size="small"
+            variant="contained"
+            startIcon={<AddShoppingCartOutlinedIcon />}
+            onClick={addProductHandler}
+          >
+            Add to cart
+          </Button>
+        ) : (
+          <Stack flexDirection="row" alignItems="center" justifyContent="space-between">
+            <IconButton onClick={deleteProductHandler} aria-label="delete" color="secondary">
+              <DeleteForeverOutlinedIcon fontSize="inherit" />
+            </IconButton>
+            <Typography fontWeight="bold">{count}</Typography>
+            <IconButton onClick={addProductHandler} aria-label="add" color="success">
+              <ControlPointOutlinedIcon fontSize="inherit" />
+            </IconButton>
+          </Stack>
+        )}
       </CardActions>
     </Card>
   );
