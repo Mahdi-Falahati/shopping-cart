@@ -21,7 +21,7 @@ export default function Details() {
   )[0];
 
   return (
-    <Box sx={{ flexGrow: 1,minHeight:"81vh" }} my={4}>
+    <Box sx={{ flexGrow: 1, minHeight: "81vh" }} my={4}>
       <Grid container spacing={8} justifyContent="center" alignItems="center">
         <Grid item xs={11} sm={3}>
           <Box
@@ -51,16 +51,14 @@ export default function Details() {
               <Typography>{description}</Typography>
             </AccordionDetails>
           </Accordion>
-          <Typography variant="body1" gutterBottom>
-            <Typography
-              mt={2}
-              mr={2}
-              variant="h6"
-              display="inline-block"
-              color="orangered"
-            >
-              category :
-            </Typography>
+          <Typography
+            my={2}
+            variant="body1"
+            fontWeight="bold"
+            fontSize="17px"
+            gutterBottom
+          >
+            <span style={{ color: "orangered" }}>category : </span>
             {category}
           </Typography>
           <Typography
