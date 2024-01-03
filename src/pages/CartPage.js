@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 
 export default function CartPage() {
   return (
-    <Box sx={{ flexGrow: 1, minHeight: "88vh" }}>
-      <Grid container spacing={8} justifyContent="center" alignItems="center">
+    <Box sx={{ flexGrow: 1, minHeight: "81vh" }}>
+      <Grid container spacing={2} justifyContent="center" alignItems="center">
         <Grid item xs={11} mt={4} sm={7}>
           <Stack justifyContent="center" alignItems="center">
             <img
@@ -24,7 +24,7 @@ export default function CartPage() {
             </Link>
           </Stack>
         </Grid>
-        <Grid item xs={11} mt={4} sm={4}>
+        <Grid item xs={11} mt={4} sm={4} md={3}>
           <Typography color="primary" variant="h6">
             Total Products: 0
           </Typography>
