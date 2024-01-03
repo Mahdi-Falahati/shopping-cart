@@ -6,29 +6,26 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 import AddShoppingCartOutlinedIcon from "@mui/icons-material/AddShoppingCartOutlined";
 import { Box, IconButton, Stack } from "@mui/material";
-import { useState } from "react";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
 import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
 import { useDispatch } from "react-redux";
-import {
-  productCountMines,
-  productCountPlus,
-} from "../../features/SelectProductSlice";
+import { productCountMines, productCountPlus } from "../../features/ProductSlice";
 
 export default function ProductCard(props) {
-  const { id, title, image, price } = props;
-  const [count, setCount] = useState(0);
+  const { id, title, image, price,count } = props;
   const dispatch = useDispatch();
 
   const addProductHandler = () => {
-    dispatch(productCountPlus());
-    setCount((prev) => prev + 1);
+    dispatch(productCountPlus(id));
   };
 
   const deleteProductHandler = () => {
-    dispatch(productCountMines());
-    setCount((prev) => prev - 1);
+    dispatch(productCountMines(id));
+  };
+
+  const increseProductHandler = () => {
+    dispatch(productCountPlus(id));
   };
 
   return (
@@ -119,9 +116,11 @@ export default function ProductCard(props) {
                 <IndeterminateCheckBoxOutlinedIcon fontSize="inherit" />
               </IconButton>
             )}
-            <Typography fontWeight="bold">{count}</Typography>
+            <Typography fontWeight="bold">
+              {count}
+            </Typography>
             <IconButton
-              onClick={addProductHandler}
+              onClick={increseProductHandler}
               aria-label="add"
               color="success"
             >
