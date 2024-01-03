@@ -19,7 +19,7 @@ export default function CartPage() {
 
   let totalPrice = 0;
   for (const item of selected) {
-    totalPrice += item.price;
+    totalPrice += item.price * item.count;
   }
 
   const clearProductHandler = () => {
