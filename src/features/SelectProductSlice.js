@@ -15,10 +15,13 @@ export const selectProductSlice = createSlice({
     productCountMines: (state) => {
       state.counter -= 1;
     },
+    selectProduct: (state, action) => {
+      state.value = action.payload;
+    },
   },
 });
 
-export const { productCountPlus, productCountMines } =
+export const { productCountPlus, productCountMines, selectProduct } =
   selectProductSlice.actions;
 
 export default selectProductSlice;
