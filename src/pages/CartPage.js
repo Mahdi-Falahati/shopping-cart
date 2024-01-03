@@ -8,8 +8,14 @@ import ProductCard from "../components/modules/ProductCard";
 import { clearDataSelected } from "../features/ProductSlice";
 
 export default function CartPage() {
-  const selected = useSelector((state) => state.products.selectedProduct);
+  const products = useSelector((state) => state.products.value);
   const dispatch = useDispatch();
+  let selected = [];
+  products.forEach((i) => {
+    if (i.buy) {
+      selected.push(i);
+    }
+  });
 
   let totalPrice = 0;
   for (const item of selected) {
