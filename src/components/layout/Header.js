@@ -5,7 +5,7 @@ import styles from "../templates/layout.module.css";
 import { useSelector } from "react-redux";
 
 export default function Header() {
-  const count = useSelector((state) => state.selectProducts.counter);
+  const counter = useSelector((state) => state.products.counter);
 
   return (
     <header className={styles.header}>
@@ -21,7 +21,7 @@ export default function Header() {
           </Link>
         </Typography>
         <Link to="/cart">
-          <Badge badgeContent={count} color="warning">
+          <Badge badgeContent={counter} color="warning">
             <ShoppingCartOutlinedIcon fontSize="large" />
           </Badge>
         </Link>
