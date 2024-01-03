@@ -12,12 +12,14 @@ import Api from "./utils/Api";
 import { useDispatch } from "react-redux";
 import { fetchingData } from "./features/ProductSlice";
 import Details from "./pages/Details";
+import CartPage from "./pages/CartPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
       <Route path=":id" element={<Details />} />
+      <Route path="/cart" element={<CartPage />} />
     </Route>
   )
 );
