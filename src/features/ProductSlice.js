@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   value: [],
   counter: 0,
+  isLoading: true,
 };
 
 export const productSlice = createSlice({
@@ -48,6 +49,9 @@ export const productSlice = createSlice({
         return { ...item, count: 0, buy: false };
       });
     },
+    Loading: (state) => {
+      state.isLoading = false;
+    },
   },
 });
 
@@ -56,6 +60,7 @@ export const {
   productCountMines,
   productCountPlus,
   clearDataSelected,
+  Loading,
 } = productSlice.actions;
 
 export default productSlice;

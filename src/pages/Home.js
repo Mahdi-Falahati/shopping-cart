@@ -1,15 +1,16 @@
 import { Container, CssBaseline, Stack } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../components/modules/ProductCard";
 import CricleLoading from "../components/modules/CricleLoading";
-import { useState } from "react";
+import { Loading } from "../features/ProductSlice";
 
 export default function Home() {
   const products = useSelector((state) => state.products.value);
-  const [loading, setLoading] = useState(true);
+  const loading = useSelector((state) => state.products.isLoading);
+  const dispatch = useDispatch()
 
   setTimeout(() => {
-    setLoading(false);
+    dispatch(Loading());
   }, 5000);
 
   return (
