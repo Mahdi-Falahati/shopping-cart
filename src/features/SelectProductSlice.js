@@ -9,12 +9,16 @@ export const selectProductSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    counterProduct: (state, action) => {
+    productCountPlus: (state) => {
       state.counter += 1;
+    },
+    productCountMines: (state) => {
+      state.counter -= 1;
     },
   },
 });
 
-export const { counterProduct } = selectProductSlice.actions;
+export const { productCountPlus, productCountMines } =
+  selectProductSlice.actions;
 
 export default selectProductSlice;
