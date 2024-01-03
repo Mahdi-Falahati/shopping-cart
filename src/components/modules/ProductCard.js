@@ -9,17 +9,25 @@ import { Box, IconButton, Stack } from "@mui/material";
 import { useState } from "react";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
-import IndeterminateCheckBoxOutlinedIcon from '@mui/icons-material/IndeterminateCheckBoxOutlined';
+import IndeterminateCheckBoxOutlinedIcon from "@mui/icons-material/IndeterminateCheckBoxOutlined";
+import { useDispatch } from "react-redux";
+import {
+  productCountMines,
+  productCountPlus,
+} from "../../features/SelectProductSlice";
 
 export default function ProductCard(props) {
   const { id, title, image, price } = props;
   const [count, setCount] = useState(0);
+  const dispatch = useDispatch();
 
   const addProductHandler = () => {
+    dispatch(productCountPlus());
     setCount((prev) => prev + 1);
   };
 
   const deleteProductHandler = () => {
+    dispatch(productCountMines());
     setCount((prev) => prev - 1);
   };
 
