@@ -51,7 +51,7 @@ export default function Details() {
               <Typography>{description}</Typography>
             </AccordionDetails>
           </Accordion>
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="body1" gutterBottom>
             <Typography
               mt={2}
               mr={2}
@@ -77,7 +77,7 @@ export default function Details() {
             {price} $
           </Typography>
           <Link to="/" style={{ marginTop: "20px", display: "block" }}>
-            <Button variant="contained" size="medium" fullWidth="true">
+            <Button variant="contained" size="medium" fullWidth={true}>
               Back to Store
             </Button>
           </Link>
