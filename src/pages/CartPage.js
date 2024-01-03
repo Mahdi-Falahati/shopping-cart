@@ -4,26 +4,41 @@ import CleaningServicesOutlinedIcon from "@mui/icons-material/CleaningServicesOu
 import ShoppingCartCheckoutOutlinedIcon from "@mui/icons-material/ShoppingCartCheckoutOutlined";
 import shopingcart from "../assets/shopingcart.svg";
 import { Link } from "react-router-dom";
-import ProductCard from '../components/modules/ProductCard';
+import ProductCard from "../components/modules/ProductCard";
 import { clearDataSelected } from "../features/ProductSlice";
 
 export default function CartPage() {
   const selected = useSelector((state) => state.products.selectedProduct);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   let totalPrice = 0;
   for (const item of selected) {
     totalPrice += item.price;
   }
 
-  const clearProductHandler = ()=>{
-    dispatch(clearDataSelected())
-  }
+  const clearProductHandler = () => {
+    dispatch(clearDataSelected());
+  };
 
   return (
     <Box sx={{ flexGrow: 1, minHeight: "81vh" }}>
-      <Grid container spacing={2} justifyContent="center" alignItems="flex-start">
-        <Grid item xs={11} mt={4} sm={7} display="flex" justifyContent="space-around" flexDirection="row" flexWrap="wrap"  sx={{height:"75vh",overflow: "auto"}}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent="center"
+        alignItems="flex-start"
+      >
+        <Grid
+          item
+          xs={11}
+          mt={4}
+          sm={7}
+          display="flex"
+          justifyContent="space-around"
+          flexDirection="row"
+          flexWrap="wrap"
+          sx={{ height: "75vh", overflow: "auto" }}
+        >
           {selected.length > 0 ? (
             selected.map((item) => <ProductCard key={item.id} {...item} />)
           ) : (
