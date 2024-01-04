@@ -21,7 +21,7 @@ export default function Home() {
           my={5}
           flexDirection="row"
           flexWrap="wrap"
-          justifyContent="space-between"
+          justifyContent="space-around"
         >
           {loading && <CricleLoading />}
           {!loading &&
